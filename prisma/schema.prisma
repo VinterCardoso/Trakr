@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement()) @map("id")
+  name      String    @db.VarChar(100)
+  password  String    @db.VarChar(255)
+  email     String    @unique @db.VarChar(100)
+  purchases Purchase[]
+  expenses  Expense[]
+
+  @@map("user")
+}
+
+model PaymentMethod {
+  id                    Int                         @id @default(autoincrement()) @map("id")
+  paymentMethodName     String                      @unique @db.VarChar(100) @map("payment_method_name")
+  paymentMethodType     String                      @db.VarChar(50) @map("payment_method_type")
+  purchasePaymentMethods PurchasePaymentMethod[]
+
+  @@map("payment_method")
+}
+
+model PurchaseLocation {
+  id           Int        @id @default(autoincrement()) @map("id")
+  locationName String     @db.VarChar(100) @map("location_name")
+  locationType String     @db.VarChar(50) @map("location_type")
+  address      String?    @db.VarChar(255)
+  purchases    Purchase[]
+
+  @@map("purchase_location")
+}
+
+model Category {
+  id           Int       @id @default(autoincrement()) @map("id")
+  categoryName String    @unique @db.VarChar(100) @map("category_name")
+  description  String?   @db.Text
+  expenses     Expense[]
+
+  @@map("category")
+}
+
+model Purchase {
+  id                     Int                       @id @default(autoincrement()) @map("id")
+  purchaseDate           DateTime                  @db.Timestamp(0) @map("purchase_date")
+  totalValue             Decimal                   @db.Decimal(10, 2) @map("total_value")
+  description            String?                   @db.Text
+
+  userId                 Int                       @map("user_id")
+  user                   User                      @relation(fields: [userId], references: [id])
+
+  purchaseLocationId     Int                       @map("purchase_location_id")
+  purchaseLocation       PurchaseLocation          @relation(fields: [purchaseLocationId], references: [id])
+
+  expenses               Expense[]
+  purchasePaymentMethods PurchasePaymentMethod[]
+
+  @@map("purchase")
+}
+
+model Expense {
+  id                     Int       @id @default(autoincrement()) @map("id")
+  value                  Decimal   @db.Decimal(10, 2)
+  expenseDate            DateTime  @db.Timestamp(0) @map("expense_date")
+  description            String?   @db.Text
+  expenseType            String?   @db.VarChar(50) @map("expense_type")
+
+  purchaseId             Int       @map("purchase_id")
+  purchase               Purchase? @relation(fields: [purchaseId], references: [id])
+
+  categoryId             Int       @map("category_id")
+  category               Category  @relation(fields: [categoryId], references: [id])
+
+  userId                 Int       @map("user_id")
+  user                   User      @relation(fields: [userId], references: [id])
+
+  @@map("expense")
+}
+
+model PurchasePaymentMethod {
+  id                       Int          @id @default(autoincrement()) @map("id")
+  paidValue                Decimal      @db.Decimal(10, 2) @map("paid_value")
+
+  purchaseId               Int          @map("purchase_id")
+  purchase                 Purchase     @relation(fields: [purchaseId], references: [id])
+
+  paymentMethodId          Int          @map("payment_method_id")
+  paymentMethod            PaymentMethod @relation(fields: [paymentMethodId], references: [id])
+
+  @@map("purchase_payment_method")
+}
