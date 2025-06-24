@@ -8,7 +8,7 @@ Um docker-compose.yml está disponível na raiz do projeto para facilitar o dese
 
 Para back-end foram utilizados:
 - Express
-- TypeORM
+- Prisma
 
 # Primeiros passos
 - Instalar o node 20.10.0
