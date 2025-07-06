@@ -1,9 +1,14 @@
 import { PaymentMethod } from "@prisma/client";
-import { PaymentMethodCreateInput, PaymentMethodUpdateInput } from "./paymentMethod.dto";
+import {
+  PaymentMethodCreateInput,
+  PaymentMethodUpdateInput,
+} from "./paymentMethod.dto";
 import prisma from "src/infra/database";
 
 export class PaymentMethodService {
-  async createPaymentMethod(data: PaymentMethodCreateInput): Promise<PaymentMethod> {
+  async createPaymentMethod(
+    data: PaymentMethodCreateInput
+  ): Promise<PaymentMethod> {
     return await prisma.paymentMethod.create({
       data,
     });
@@ -15,7 +20,10 @@ export class PaymentMethodService {
     });
   }
 
-  async updatePaymentMethod(id: number, data: PaymentMethodUpdateInput): Promise<PaymentMethod | null> {
+  async updatePaymentMethod(
+    id: number,
+    data: PaymentMethodUpdateInput
+  ): Promise<PaymentMethod | null> {
     return await prisma.paymentMethod.update({
       where: { id },
       data,

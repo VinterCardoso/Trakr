@@ -12,12 +12,10 @@ export class PaymentMethodController {
     const { paymentMethodName, paymentMethodType } = req.body;
 
     if (!paymentMethodName || !paymentMethodType) {
-      res
-        .status(400)
-        .json({
-          message:
-            "Missing required fields: paymentMethodName and paymentMethodType are required.",
-        });
+      res.status(400).json({
+        message:
+          "Missing required fields: paymentMethodName and paymentMethodType are required.",
+      });
       return;
     }
 
@@ -29,12 +27,10 @@ export class PaymentMethodController {
       res.status(201).json(paymentMethod);
     } catch (error: any) {
       console.error("Error creating payment method:", error);
-      res
-        .status(500)
-        .json({
-          message: "Failed to create payment method.",
-          error: error.message,
-        });
+      res.status(500).json({
+        message: "Failed to create payment method.",
+        error: error.message,
+      });
     }
   }
 
@@ -57,12 +53,10 @@ export class PaymentMethodController {
       }
     } catch (error: any) {
       console.error(`Error fetching payment method with ID ${id}:`, error);
-      res
-        .status(500)
-        .json({
-          message: "Failed to retrieve payment method.",
-          error: error.message,
-        });
+      res.status(500).json({
+        message: "Failed to retrieve payment method.",
+        error: error.message,
+      });
     }
   }
 
@@ -75,12 +69,10 @@ export class PaymentMethodController {
 
     const { paymentMethodName, paymentMethodType } = req.body;
     if (!paymentMethodName || !paymentMethodType) {
-      res
-        .status(400)
-        .json({
-          message:
-            "Missing required fields: paymentMethodName and paymentMethodType are required.",
-        });
+      res.status(400).json({
+        message:
+          "Missing required fields: paymentMethodName and paymentMethodType are required.",
+      });
       return;
     }
 
@@ -94,12 +86,10 @@ export class PaymentMethodController {
       }
     } catch (error: any) {
       console.error(`Error updating payment method with ID ${id}:`, error);
-      res
-        .status(500)
-        .json({
-          message: "Failed to update payment method.",
-          error: error.message,
-        });
+      res.status(500).json({
+        message: "Failed to update payment method.",
+        error: error.message,
+      });
     }
   }
 
@@ -120,12 +110,10 @@ export class PaymentMethodController {
       }
     } catch (error: any) {
       console.error(`Error deleting payment method with ID ${id}:`, error);
-      res
-        .status(500)
-        .json({
-          message: "Failed to delete payment method.",
-          error: error.message,
-        });
+      res.status(500).json({
+        message: "Failed to delete payment method.",
+        error: error.message,
+      });
     }
   }
 }
