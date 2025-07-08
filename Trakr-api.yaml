@@ -1,0 +1,730 @@
+type: collection.insomnia.rest/5.0
+name: My first collection
+meta:
+  id: wrk_721793f052234503bb674fda9fe9f70d
+  created: 1752010244932
+  modified: 1752010244932
+  description: ""
+collection:
+  - name: users
+    meta:
+      id: fld_8c7ebc9e774c4b5d84c11ae1486d8ebb
+      created: 1752011617419
+      modified: 1752011617419
+      sortKey: -1752011617419
+      description: ""
+    children:
+      - url: localhost:3000/api/users
+        name: Get all
+        meta:
+          id: req_c5e1ae81e73a4d608e85cb550cd654e3
+          created: 1752010244955
+          modified: 1752013469272
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707513
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/users/1
+        name: Get by id
+        meta:
+          id: req_f3baa1e680f1421e944fdd2bb98f52dc
+          created: 1752011728544
+          modified: 1752011837672
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707463
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/users
+        name: Create
+        meta:
+          id: req_332a0642de17496c91607604f811eeac
+          created: 1752011743187
+          modified: 1752011823764
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707413
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Geovana Figueiredo", 
+            	"password": "abc123", 
+            	"email": "geovanasilva@alunos.utfpr.edu.br"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/users/3
+        name: Update
+        meta:
+          id: req_da2fa00cdce14dbba3231c3329cfeaca
+          created: 1752011851325
+          modified: 1752013614675
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707363
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Geovana Figueiredo Silva", 
+            	"password": "abc123", 
+            	"email": "geovanasilva@alunos.utfpr.edu.br"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/users/3
+        name: Delete
+        meta:
+          id: req_68468fc2b68349f696377563bd1eec47
+          created: 1752014679581
+          modified: 1752014684030
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707461.4375
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: category
+    meta:
+      id: fld_443d462d1878463fa934481bd0b78840
+      created: 1752011914863
+      modified: 1752011914863
+      sortKey: -1752011617369
+      description: ""
+    children:
+      - url: localhost:3000/api/category
+        name: Get all
+        meta:
+          id: req_8bb7a264789441bf84acc3dc7a674bd0
+          created: 1752011914864
+          modified: 1752013647778
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707513
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/category/1
+        name: Get by id
+        meta:
+          id: req_41a63dd5560f43e6a65fb1bf2fa48b27
+          created: 1752011914866
+          modified: 1752012003128
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707463
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/category
+        name: Create
+        meta:
+          id: req_f21342f02e8d4a02bc429e4ef72e773e
+          created: 1752011914867
+          modified: 1752014755666
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707413
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "categoryName": "Vestuário",
+              "description": "Gastos com roupas e acessórios."
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/category/1
+        name: Update
+        meta:
+          id: req_287113a23ab94ee3887e113f14edc15f
+          created: 1752011914868
+          modified: 1752014020549
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707363
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"description": "testes testes", 
+            	"categoryName": "Category teste"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/category/7
+        name: Delete
+        meta:
+          id: req_3481e5f194b645c5990bfec5e2c46c6b
+          created: 1752014632786
+          modified: 1752014769582
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707459.875
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: paymentMethod
+    meta:
+      id: fld_6ff54a904fa049afb461a34d13136833
+      created: 1752014061359
+      modified: 1752014061359
+      sortKey: -1752011617319
+      description: ""
+    children:
+      - url: localhost:3000/api/paymentMethod
+        name: Get all
+        meta:
+          id: req_c0b18fae1b0a4ac18f71ee2ae1f96b2f
+          created: 1752014061360
+          modified: 1752014069827
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707513
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/paymentMethod
+        name: Create
+        meta:
+          id: req_9e4e82dd84504932b4889c25dcb07c45
+          created: 1752014061361
+          modified: 1752014112599
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707413
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"paymentMethodName": "Cheque",
+            	"paymentMethodType": "Crédito"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/paymentMethod/1
+        name: Get by id
+        meta:
+          id: req_c73076ae18874200b1891d8766afde11
+          created: 1752014061361
+          modified: 1752014077992
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707463
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/paymentMethod/1
+        name: Update
+        meta:
+          id: req_0d7858e615624196aaa451d6b6d259ab
+          created: 1752014061362
+          modified: 1752014139006
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707363
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"paymentMethodName": "Cheque 2",
+            	"paymentMethodType": "Crédito"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/paymentMethod/5
+        name: Delete
+        meta:
+          id: req_756abfb60296404faaa89f9d96ff1166
+          created: 1752014606637
+          modified: 1752014618018
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707456.75
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: purchaseLocation
+    meta:
+      id: fld_b5ddf0e8856a45fcb9318404d9a04416
+      created: 1752014170074
+      modified: 1752014170074
+      sortKey: -1752011617269
+      description: ""
+    children:
+      - url: localhost:3000/api/purchaseLocation
+        name: Get all
+        meta:
+          id: req_b521ca838181438da5c3f1309ccf979e
+          created: 1752014170075
+          modified: 1752014173731
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707513
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/purchaseLocation
+        name: Create
+        meta:
+          id: req_b2c2c5392ed04f9cb27c86fe2266ced4
+          created: 1752014170076
+          modified: 1752014205775
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707413
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"locationName": "Supermercado Bom Preço 2",
+            	"locationType": "Supermercado",
+            	"address": "Rua das Flores, 123, Centro"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/purchaseLocation/4
+        name: Get by id
+        meta:
+          id: req_3a10b1537cdb48f589c3594b19e9005a
+          created: 1752014170077
+          modified: 1752014586057
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707463
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/purchaseLocation/4
+        name: Update
+        meta:
+          id: req_6aa7d524b3414d089bcc3f4f059e09b3
+          created: 1752014170077
+          modified: 1752014255528
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707363
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"locationName": "Supermercado Bom Preço",
+            	"locationType": "Supermercado",
+            	"address": "Rua das Flores, 123, Centro"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/purchaseLocation/4
+        name: Delete
+        meta:
+          id: req_759331c55e2c4aca9880c74053d8a9f6
+          created: 1752014558501
+          modified: 1752014576199
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707450.5
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: purchase
+    meta:
+      id: fld_cb01e56dbd47444eb326acf5d6a82a48
+      created: 1752014278243
+      modified: 1752014278243
+      sortKey: -1752011617219
+      description: ""
+    children:
+      - url: localhost:3000/api/purchases
+        name: Get all
+        meta:
+          id: req_f9c7cc6639824536b339677461e4f0dd
+          created: 1752014278244
+          modified: 1752014307510
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707513
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/purchases
+        name: Create
+        meta:
+          id: req_3be0b3e9c859446f8f2377fa49829b6c
+          created: 1752014278247
+          modified: 1752018338592
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707413
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "purchaseDate": "2025-07-08T20:30:00Z",
+              "totalValue": 90.00,
+              "description": "Compras do mês.",
+              "userId": 1,
+              "purchaseLocationId": 1,
+              "expenses": [
+                {
+                  "value":90.00,
+                  "expenseDate": "2025-07-08T14:35:00Z",
+                  "description": "Mantimentos",
+                  "expenseType": "Alimentos",
+                  "categoryId": 1,
+                  "userId": 1
+                }
+              ],
+              "purchasePaymentMethods": [
+                {
+                  "paidValue": 80.00,
+                  "paymentMethodId": 1
+                }
+              ]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/purchases/4
+        name: Get by id
+        meta:
+          id: req_ac49c81d928e48d9810a95b6da7c82ae
+          created: 1752014278248
+          modified: 1752014444395
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707463
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/purchases/4
+        name: Update
+        meta:
+          id: req_bed44eb21f344abe8d42add395d8199f
+          created: 1752014278249
+          modified: 1752014504535
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707363
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "purchaseDate": "2025-07-08T14:30:00Z",
+              "totalValue": 125.50,
+              "description": "Compras do mês na mercearia local.",
+              "userId": 1,
+              "purchaseLocationId": 1,
+              "expenses": [
+                {
+                  "value": 75.00,
+                  "expenseDate": "2025-07-08T14:35:00Z",
+                  "description": "Mantimentos diversos",
+                  "expenseType": "Alimentos",
+                  "categoryId": 1,
+                  "userId": 1
+                },
+                {
+                  "value": 50.50,
+                  "expenseDate": "2025-07-08T14:40:00Z",
+                  "description": "Produtos de limpeza",
+                  "expenseType": "Casa",
+                  "categoryId": 2,
+                  "userId": 1
+                }
+              ],
+              "purchasePaymentMethods": [
+                {
+                  "paidValue": 100.00,
+                  "paymentMethodId": 1
+                },
+                {
+                  "paidValue": 25.50,
+                  "paymentMethodId": 3
+                }
+              ]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/api/purchases/4
+        name: Delete
+        meta:
+          id: req_64e8e0e98fe64becbdcf2aa8d87573f8
+          created: 1752014528978
+          modified: 1752014532939
+          isPrivate: false
+          description: ""
+          sortKey: -1752011707438
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_dd7dbe92a5a933521943d33d325c61d3396f4f71
+    created: 1752010244936
+    modified: 1752010244936
+environments:
+  name: Base Environment
+  meta:
+    id: env_dd7dbe92a5a933521943d33d325c61d3396f4f71
+    created: 1752010244934
+    modified: 1752010244934
+    isPrivate: false
