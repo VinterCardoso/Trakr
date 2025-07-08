@@ -31,7 +31,7 @@ O projeto foi construído utilizando as seguintes tecnologias:
 
 - **Banco de Dados:**
 
-  - [MySQL](https://www.mysql.com/)
+  - [PostgreSQL](https://www.postgresql.org/)
 
 - **Ambiente de Desenvolvimento:**
   - [Docker](https://www.docker.com/)
@@ -131,6 +131,7 @@ No arquivo `package.json`, você encontrará os seguintes scripts:
 - `"build"`: Compila o código TypeScript para JavaScript.
 - `"prisma:migrate"`: Executa as migrações do banco de dados.
 - `"prisma:generate"`: Gera o Prisma Client.
+- `"prisma:seed"`: Popula o banco de dados.
 
 ## Endpoints da API
 
@@ -145,7 +146,7 @@ Para mais detalhes sobre as rotas, consulte os arquivos de rotas no diretório `
 
 ## Banco de Dados
 
-O projeto utiliza o **MySQL** como banco de dados, com o **Prisma** como ORM para gerenciar o esquema e as consultas.
+O projeto utiliza o **PostgreSQL** como banco de dados, com o **Prisma** como ORM para gerenciar o esquema e as consultas.
 
 Para visualizar e gerenciar os dados do banco de dados, você pode usar o Prisma Studio com o seguinte comando:
 
