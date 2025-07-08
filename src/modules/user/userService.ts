@@ -1,5 +1,6 @@
 import prisma from "../../infra/database";
 import { User } from "@prisma/client";
+import * as bcrypt from 'bcrypt';
 
 export class UserService {
 
@@ -16,11 +17,18 @@ export class UserService {
         if (existingUser) {
             throw new Error("User with this email already exists.");
         }
+
+        const hashedPassword = await bcrypt.hash(userData.password, 10);
+        userData.password = hashedPassword;
+
         return prisma.user.create({ data: userData });
     }
 
     async update(id: number, userData: Partial<User>): Promise<User> {
         try {
+            if (userData.password) {
+                userData.password = await bcrypt.hash(userData.password, 10);
+            }
             const updatedUser = await prisma.user.update({
                 where: { id },
                 data: userData,
@@ -39,8 +47,8 @@ export class UserService {
             await prisma.user.delete({ where: { id } });
             return true;
         } catch (error: any) {
-            if (error.code === 'P2025') { 
-                return false; 
+            if (error.code === 'P2025') {
+                return false;
             }
             throw error;
         }
