@@ -13,8 +13,8 @@ router.get("/", (req, res) => {
 
 router.use("/users", userRoutes);
 router.use("/purchases", purchaseRoutes);
-router.use("/purchaseLocationRoutes", purchaseLocationRoutes);
-router.use("/paymentMethodRoutes", paymentMethodRoutes);
-router.use("/categoryRoutes", categoryRoutes);
+router.use("/purchaseLocation", purchaseLocationRoutes);
+router.use("/paymentMethod", paymentMethodRoutes);
+router.use("/category", categoryRoutes);
 
 export default router;
