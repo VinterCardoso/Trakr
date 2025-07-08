@@ -8,6 +8,17 @@ export class CategoryController {
     this.categoryService = new CategoryService();
   }
 
+  async getAllCategories(req: Request, res: Response): Promise<void> {
+    try {
+      const categories = await this.categoryService.getAllCategories();
+      res.status(200).json(categories);
+    } catch (error: any) {
+      console.error("Error fetching categories:", error);
+      res
+        .status(500)
+        .json({ message: "Failed to fetch categories.", error: error.message });
+    }
+  }
   async createCategory(req: Request, res: Response): Promise<void> {
     const { categoryName, description } = req.body;
 

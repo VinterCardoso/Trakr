@@ -2,6 +2,12 @@ import { PurchaseLocation } from "@prisma/client";
 import prisma from "src/infra/database";
 
 export class PurchaseLocationService {
+
+
+  async getAllPurchaseLocations(): Promise<PurchaseLocation[]> {
+    return await prisma.purchaseLocation.findMany();
+  }
+  
   async createPurchaseLocation(data: {
     locationName: string;
     locationType: string;

@@ -11,6 +11,10 @@ export class CategoryService {
     });
   }
 
+  async getAllCategories(): Promise<Category[]> {
+    return await prisma.category.findMany();
+  }
+  
   async getCategory(id: number): Promise<Category | null> {
     return await prisma.category.findUnique({
       where: { id },

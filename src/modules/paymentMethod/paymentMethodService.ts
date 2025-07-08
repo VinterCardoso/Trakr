@@ -6,6 +6,11 @@ import {
 import prisma from "src/infra/database";
 
 export class PaymentMethodService {
+
+  async getAllPaymentMethods(): Promise<PaymentMethod[]> {
+    return await prisma.paymentMethod.findMany();
+  }
+  
   async createPaymentMethod(
     data: PaymentMethodCreateInput
   ): Promise<PaymentMethod> {

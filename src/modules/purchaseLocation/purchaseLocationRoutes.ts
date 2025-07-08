@@ -4,6 +4,9 @@ import { PurchaseLocationController } from "./purchaseLocationController";
 const purchaseLocationRoutes = Router();
 const purchaseLocationController = new PurchaseLocationController();
 
+purchaseLocationRoutes.get("/", (req, res) =>
+  purchaseLocationController.getAllPurchaseLocations(req, res)
+);
 purchaseLocationRoutes.post("/", (req, res) =>
   purchaseLocationController.createPurchaseLocation(req, res)
 );

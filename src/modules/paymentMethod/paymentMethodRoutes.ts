@@ -4,6 +4,9 @@ import { PaymentMethodController } from "./paymentMethodController";
 const paymentMethodRoutes = Router();
 const paymentMethodController = new PaymentMethodController();
 
+paymentMethodRoutes.get("/", (req, res) =>
+  paymentMethodController.getAllPaymentMethods(req, res)
+);
 paymentMethodRoutes.post("/", (req, res) =>
   paymentMethodController.createPaymentMethod(req, res)
 );

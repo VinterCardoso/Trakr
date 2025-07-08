@@ -31,10 +31,6 @@ type PurchaseUpdateInput = Partial<Omit<Purchase, "id">> & {
 };
 
 export class PurchaseService {
-  /**
-   * Busca todas as compras, incluindo suas despesas e métodos de pagamento associados.
-   * @returns Uma promessa que resolve para um array de compras.
-   */
   async findAll(): Promise<Purchase[]> {
     return prisma.purchase.findMany({
       include: {
@@ -46,11 +42,6 @@ export class PurchaseService {
     });
   }
 
-  /**
-   * Busca uma única compra pelo seu ID, incluindo suas despesas e métodos de pagamento.
-   * @param id - O ID da compra a ser encontrada.
-   * @returns Uma promessa que resolve para o objeto da compra ou null se não for encontrada.
-   */
   async findById(id: number): Promise<Purchase | null> {
     return prisma.purchase.findUnique({
       where: { id },
@@ -67,12 +58,6 @@ export class PurchaseService {
     });
   }
 
-  /**
-   * Cria uma nova compra juntamente com suas despesas e métodos de pagamento associados
-   * dentro de uma única transação para garantir a consistência dos dados.
-   * @param purchaseData - Os dados para a nova compra, incluindo arrays para despesas e métodos de pagamento.
-   * @returns Uma promessa que resolve para a compra recém-criada.
-   */
   async create(purchaseData: PurchaseCreateInput): Promise<Purchase> {
     const { expenses, purchasePaymentMethods, ...data } = purchaseData;
 
@@ -122,13 +107,6 @@ export class PurchaseService {
     });
   }
 
-  /**
-   * Atualiza uma compra existente, suas despesas e métodos de pagamento.
-   * As despesas e métodos de pagamento existentes são removidos e recriados com base nos novos dados.
-   * @param id - O ID da compra a ser atualizada.
-   * @param purchaseData - Os dados a serem atualizados.
-   * @returns Uma promessa que resolve para a compra atualizada.
-   */
   async update(
     id: number,
     purchaseData: PurchaseUpdateInput
@@ -190,12 +168,6 @@ export class PurchaseService {
     });
   }
 
-  /**
-   * Exclui uma compra e todas as suas despesas e métodos de pagamento associados.
-   * A operação é realizada em uma transação para garantir a exclusão completa.
-   * @param id - O ID da compra a ser excluída.
-   * @returns Uma promessa que resolve para um booleano indicando o sucesso da operação.
-   */
   async delete(id: number): Promise<boolean> {
     try {
       await prisma.$transaction(async (tx) => {

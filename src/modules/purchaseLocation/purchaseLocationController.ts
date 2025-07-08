@@ -8,6 +8,24 @@ export class PurchaseLocationController {
     this.purchaseLocationService = new PurchaseLocationService();
   }
 
+
+  async getAllPurchaseLocations(
+    req: Request,
+    res: Response
+  ): Promise<void> {
+    try {
+      const purchaseLocations =
+        await this.purchaseLocationService.getAllPurchaseLocations();
+      res.status(200).json(purchaseLocations);
+    } catch (error: any) {
+      console.error("Error fetching purchase locations:", error);
+      res.status(500).json({
+        message: "Failed to fetch purchase locations.",
+        error: error.message,
+      });
+    }
+  }
+  
   async createPurchaseLocation(req: Request, res: Response): Promise<void> {
     const { locationName, locationType, address } = req.body;
 

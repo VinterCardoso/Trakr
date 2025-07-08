@@ -8,6 +8,23 @@ export class PaymentMethodController {
     this.paymentMethodService = new PaymentMethodService();
   }
 
+  async getAllPaymentMethods(
+    req: Request,
+    res: Response
+  ): Promise<void> {
+    try {
+      const paymentMethods =
+        await this.paymentMethodService.getAllPaymentMethods();
+      res.status(200).json(paymentMethods);
+    } catch (error: any) {
+      console.error("Error fetching payment methods:", error);
+      res.status(500).json({
+        message: "Failed to fetch payment methods.",
+        error: error.message,
+      });
+    }
+  }
+
   async createPaymentMethod(req: Request, res: Response): Promise<void> {
     const { paymentMethodName, paymentMethodType } = req.body;
 

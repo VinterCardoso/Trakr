@@ -9,9 +9,6 @@ export class PurchaseController {
     this.purchaseService = new PurchaseService();
   }
 
-  /**
-   * Rota para buscar todas as compras.
-   */
   async getAllPurchases(req: Request, res: Response): Promise<void> {
     try {
       const purchases = await this.purchaseService.findAll();
@@ -24,9 +21,6 @@ export class PurchaseController {
     }
   }
 
-  /**
-   * Rota para buscar uma compra pelo ID.
-   */
   async getPurchaseById(req: Request, res: Response): Promise<void> {
     const id = parseInt(req.params.id, 10);
     if (isNaN(id)) {
@@ -49,9 +43,6 @@ export class PurchaseController {
     }
   }
 
-  /**
-   * Rota para criar uma nova compra.
-   */
   async createPurchase(req: Request, res: Response): Promise<void> {
     const {
       purchaseDate,
@@ -91,9 +82,6 @@ export class PurchaseController {
     }
   }
 
-  /**
-   * Rota para atualizar uma compra existente.
-   */
   async updatePurchase(req: Request, res: Response): Promise<void> {
     const id = parseInt(req.params.id, 10);
     if (isNaN(id)) {
@@ -133,9 +121,6 @@ export class PurchaseController {
     }
   }
 
-  /**
-   * Rota para excluir uma compra.
-   */
   async deletePurchase(req: Request, res: Response): Promise<void> {
     const id = parseInt(req.params.id, 10);
     if (isNaN(id)) {

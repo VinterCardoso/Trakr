@@ -4,6 +4,9 @@ import { CategoryController } from "./categoryController";
 const categoryRoutes = Router();
 const categoryController = new CategoryController();
 
+categoryRoutes.get("/", (req, res) =>
+  categoryController.getAllCategories(req, res)
+);
 categoryRoutes.post("/", (req, res) =>
   categoryController.createCategory(req, res)
 );
